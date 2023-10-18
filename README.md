@@ -93,6 +93,19 @@ It retrieves a value from a related table based on a relationship
 SYNTAX : RELATED( table[column])
 
 
+
+## DATA MODELLING AND RELATIONSHIPS
+
+Data modelling in Power BI is one of the features used to connect mulpitple Data sources using
+a relationship. A relationship defines how data sources are connected with each other and you can 
+create an interesting data visualization on multiple data sources.
+
+Importance of Data Modelling
+
+It helps create a unifiedview of data by defining tables, columns, and relationship.
+It lmproves data organisation, accuracy, and consistency for effecive analysis and 
+reporting.
+
 _____________
 
 
@@ -118,6 +131,10 @@ USING THE BANK TERM DEPOSIT SUBSCRIPTION DATASET PROVIDED
 
 2. Marital - single and married.
 
+- USING 'OLIST' DATASETS
+
+1.  Create a relationship among all the tables. 
+  
 
 ## SOLUTION
 
@@ -148,7 +165,7 @@ Click on the new column
 
 Change the Data type
 
-Use Age-band = IF(Bank-full[age]<=30,"young""Mid-aged", Bank-full[age]>50,"old")
+Use Age-band = IF(Bank-full[age]<30,"young",if(bank-full[age]<=50,"mid-aged","old")
 and click ok.
 
 
@@ -166,6 +183,56 @@ Click on new measure
 
 Total balance for marital-married = calculate (sum(bank-full[balance]), filter(bank-full,
 bank-full[marital] = " married")
+
+
+
+### TO create a relationship between OLIST tables
+
+Data modelling
+
+Power BI supports three relationship types which includes:
+
+- One_on_one relationship : This links one record in a table to exactly one record
+in another table.
+
+- One_to_many relationship : It links one record to multiple related records in another
+table.
+
+- Many_to_many relationship : It involves intermediate tables to establish connections between multiple
+records in different tables.
+
+Primary keys uniquely identify each record in a table and ensure data intergrity.
+
+Foreign keys establihsh relationships by linking to the primary key of another table.
+
+Import the OLIST datasets from csv files
+
+Click on Model at the left pane of your desktop.
+
+By default, Power BI will create a relationship
+
+To delete a connection, right click on the connection link and delete.
+
+OLIST datasets and their relationships
+ 
+Employees table and Customer table : The tables was connected by City, which is the common column.
+
+Shippers table and Orders table: The tables was connected by ShipperID, which is the common column.
+
+Order details  table and Products table : The tables was connected by ProductID, which is the common column.
+
+Employees table and Orders table : The tables was connected by EmployeeID, which is the common column.
+
+Category table and Product table : The tables was connected by CategoryID, which is the common column.
+
+Shippers table and Order table : The tables was connected by ShippersID, which i the common column.
+
+Order details table and Order table : The tables was connected by OrderID, which is the common column.
+
+Shippers table and Customer table : The tables was connected by Companyname, which is the common column.
+
+Customers table and Order table : The tables was connected by CustomerID, which is the common column.
+
 
 
 
